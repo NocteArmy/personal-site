@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><% include partials/template/head.ejs %></head>
+
+<body>
+    <% include partials/template/header.ejs %>
+    <div class="jumbotron-fluid">
+        <div class="container">
+            <!-- Skills Summary Section -->
+            <div class="row skill-summary">
+                <section id="skill-summary">
+                    <h2 class="title">Skills Summary</h2>
+                    <ul>
+                        <li>Skill 1</li>
+                        <li>Skill 1</li>
+                        <li>Skill 1</li>
+                        <li>Skill 1</li>
+                        <li>Skill 1</li>
+                    </ul>
+                </section>  
+            </div>
+            
+            
+            <section id="work">
+                <div class="row work">
+                    <!-- Work Experience Section -->
+                    <h2 class="title">Work Experience</h2>
+                </div>
+    
+                <!-- Job Details - can be copied to add more jobs -->
+                <div class="row work">
+                    <div class="col-md-4">
+                        <h3>Job Title</h3>
+                        <p class="uppercase">Company Name</p>
+                        <p>Dates worked</p>
+                    </div>
+                    <div class="col-md-8 job-description">
+                        <!-- <p>Job Summary</p> -->
+                        <p>Summary of Tasks</p>
+                        <ul>
+                            <li>Task 1</li>
+                            <li>Task 2</li>
+                            <li>Task 3</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End of Job Detail block -->
+            </section>
+        
+            <div class="row prof-training">
+                <!-- Professional Training -->
+                <section id="prof-training">
+                    <h2 class="title">Professional Training</h2>
+                    <p><strong>Courses</strong> compelted on *.com</p>
+                    <p>Array of courses taken</p>
+                </section>
+            </div>
+        
+            <div class="row education">
+                <!-- Education -->
+                <section id="education">
+                    
+                    <h2 class="title">Education</h2>
+    
+                    <!-- School details: copy this whole block to add more schools -->
+                    <p><strong>Degree</strong>, Subject, Date</p>
+                    <p>distinctions</p>
+                    <p>College/University, Location</p>
+    
+                    <!-- Add as many paragraphs as needed -->
+                    <!-- <p>Summary</p> -->
+                    <!-- End of school details -->
+                    
+                </section>
+            </div>
+        
+            <div class="row conferences">
+                <!-- Conferences -->
+                <section id="conferences">
+                    <h2 class="title">Conferences</h2>
+                    <p>List of conferences presented at</p>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <% include partials/template/footer.ejs %>
+    <% include partials/template/jsdefaults.ejs %>
+</body>
+</html>

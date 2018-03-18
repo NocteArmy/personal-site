@@ -1,0 +1,206 @@
+/* Imports
+----------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:100);
+
+/* Global Styles
+----------------------------*/
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+.jumbotron-fluid {
+    background: #EDF2F4;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+h2 {
+    margin-top: 0;
+}
+.title {
+    font-weight: 700;
+}
+h3 {
+    margin: 0;
+}
+p {
+    font-family: inherit;
+    font-weight: 100;
+}
+li {
+    font-family: inherit;
+    font-weight: 100;
+}
+a {
+    color: #c18934;
+}
+a:hover {
+    text-decoration: none;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* Download Button */
+.btn {
+    text-decoration: none;
+    background: #EF233C;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+}
+
+/* Header and Footer
+----------------------------*/
+header, footer {
+    background: #2B2D42;
+}
+/* Header */
+header {
+    font-size: 1.25rem;
+}
+header .profile-img {
+    width: 300px;
+    border-radius: 10%;
+}
+header .container {
+    padding-bottom: 25px;
+}
+header h1, header h2, header p {
+    color: #EDF2F4;
+    margin: 0;
+}
+.download {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px;
+    color: #8D99AE;
+}
+.contact-info {
+    padding: 5px;
+    display: inline-block;
+}
+.contact-info a {
+    font-size: 3em;
+    padding: 5px;
+}
+footer h2 {
+    color: #c18934;
+}
+
+/* Navigation
+----------------------------*/
+header .navbar {
+    background: #2B2D42;
+    margin-bottom: 0;
+    border-radius: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+header .navbar-default {
+    border: none;
+    border-radius: 0;
+    padding: 10px 0;
+}
+header .navbar-brand {
+    font-family: 'Roboto', sans-serif;
+    color: #c18934;
+    font-size: 1.3em;
+    font-weight: 300;
+}
+header .nav-link {
+    color: #c18934;
+}
+header .navbar-toggler {
+    color: rgba(193, 137, 52, .85);
+    border-color: rgba(193, 137, 52, .75);
+}
+/* Skill Summary
+----------------------------*/
+.skill-summary {
+    border-bottom: 4px solid #90aab6;
+    padding: 20px 15px;
+}
+
+/* Work Experience
+----------------------------*/
+.work h2 {
+    padding: 20px 15px;
+}
+h3 ~ p {
+    margin: 0;
+}
+.job-description {
+    margin-bottom: 25px;
+}
+.job-description p:first-of-type {
+    margin-top: 0;
+}
+
+/* Professional Training
+----------------------------*/
+.prof-training {
+    border-top: 4px solid #90aab6;
+    padding: 20px 15px;
+}
+
+/* Education
+----------------------------*/
+.education {
+    border-top: 4px solid #90aab6;
+    padding: 20px 15px;
+}
+p + h3 {
+    margin-top: 30px;
+}
+
+/* Conferences
+----------------------------*/
+.conferences {
+    border-top: 4px solid #90aab6;
+    padding: 20px 15px;
+}
+
+/* About Me
+----------------------------*/
+.aboutme {
+    padding: 20px 15px;
+    border-bottom: 4px solid #90aab6;
+}
+
+/* Projects
+----------------------------*/
+.projects {
+    padding-top: 20px;
+}
+
+/* Changelog
+----------------------------*/
+.changelog {
+    padding-top: 20px;
+}
+
+/* Media Queries
+----------------------------*/
+@media (max-width: 767px) {
+    .projects {
+        border-bottom: 4px solid #90aab6;
+    }
+    header .navbar-nav {
+        text-align: right;
+    }
+    header h1, header h2, header p {
+        text-align: center;
+    }
+    .contact-info a {
+        font-size: 2.25em;
+    }
+}

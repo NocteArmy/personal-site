@@ -1,0 +1,34 @@
+<header>
+
+    <nav class="navbar navbar-expand-md">
+        
+        <a href="/" class="navbar-brand">Nav Brand</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fas fa-angle-double-down"></i></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/resume">Resume</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <% if(pageID == 'resume') { %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md col-lg-4 text-center">
+                    <img class="mr-3 profile-img" src="/images/self-photo/*.jpg" alt="Author Name"> <!-- Add profile image for author -->
+                </div>
+                <div class="col-md col-lg-8">
+                    <h1>Author Name</h1>
+                    <h2>Tagline or Title</h2>
+                    <p>profile summary</p>
+                </div>
+            </div>
+        </div>
+    <% } %>
+    
+</header>

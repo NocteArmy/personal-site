@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    
+    <body id="<%= pageID %>">
+        <% include partials/template/header.ejs %>
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <div class="row aboutme">
+                    <section id="aboutme">
+                        <h1 class="title">About Me</h1>
+                        <p>to fill in about yourself...</p>
+                    </section>
+                </div>
+    
+                <div class="row">
+                    <div class="col-md-7 projects">
+                        <section id="projects">
+                            <h1 class="title">Projects</h1>
+                            <h3>Ongoing Projects</h3>
+                            <p>Project 1</p>
+                            <ul>
+                                <li>items to accomplish</li>
+                                <li>items to accomplish</li>
+                                <li>items to accomplish</li>
+                                <li>items to accomplish</li>
+                            </ul>
+                            <p>Project 2</p>
+                            <p>Project 3</p>
+                            <h3>Upcoming Projects</h3>
+                                <p>Project 4</p>
+                                    <ul>
+                                        <li>description</li>
+                                        <li>description</li>
+                                    </ul>
+                                <p>Project 5</p>
+                                    <ul><li>description</li></ul>
+                        </section>
+                    </div>
+    
+                    <div class="col-md-5 changelog">
+                        <section id="changelog">
+                            <h1 class="title">Changelog</h1>
+                            <p>Launched Version 1.0.0 of Personal Website</p>
+                            <ul>
+                                <li>elements of first commit</li>
+                                <li>elements of first commit</li>
+                                <li>elements of first commit</li>
+                                <li>elements of first commit</li>
+                                <li>elements of first commit</li>
+                                <li>elements of first commit</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% include partials/template/footer.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

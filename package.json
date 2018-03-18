@@ -1,0 +1,24 @@
+{
+  "name": "site_name",
+  "version": "1.0.0",
+  "description": "description added here",
+  "main": "site/site.js",
+  "scripts": {
+    "start": "nodemon -e css,ejs,js,json --watch site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noctearmy/*.git"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "site"
+  ],
+  "author": "Author Name",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
