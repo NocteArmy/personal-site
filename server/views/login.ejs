@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    
+    <body>
+        <% include partials/template/header.ejs %>
+        
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <div class="auth-header">
+                        <h1 class="title">Log In</h1>
+                        <p>New to the website? <a href="/register">Register</a></p>
+                </div>
+                <% if(locals.authFailure.length > 0) { %>
+                    <div class="row justify-content-center"><div class="col-6 col-lg-5 col-xl-4 alert alert-danger" role="role"><%= authFailure %></div></div>
+                <% } %>
+                <% if(locals.authSuccess.length > 0) { %>
+                    <div class="row justify-content-center"><div class="col-6 col-lg-5 col-xl-4 alert alert-success" role="role"><%= authSuccess %></div></div>
+                <% } %>
+                <form id="login" name="login" method="post" action="login">
+                    <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="username">Username <span class="required">*</span></label>
+                            <input name="username" type="username" class="form-control" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <input name="password" type="password" class="form-control" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4"><input class="btn btn-dark" type="submit" value="Log In"></div>
+                    </div>
+                </form>
+                <div class="row justify-content-center">
+                    <div class="col-6 col-lg-5 col-xl-4 auth-btn">
+                        <a href="/lostpassword">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% include partials/template/footer.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

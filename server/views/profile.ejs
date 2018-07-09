@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    
+    <body id="<%= pageID %>">
+        <% include partials/template/header.ejs %>
+
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <% if(locals.currentUser.verified === false) { %>
+                    <div class="row alert alert-danger"><p class="no-margin">Your email has not yet been verified. In order to recover your account, your email must be verified. Please check your email(<%= currentUser.email %>) or visit the <a href="/verify">Verify</a> page to resend a request token</p></div>
+                <% } %>
+                <% if(locals.authSuccess.length > 0) { %>
+                    <div class="row alert alert-success" role="role"><%= authSuccess %></div>
+                <% } %>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h1 class="title profile">Edit About Me</h1>
+                        <% if(locals.messageAboutme.length > 0) { %>
+                            <div class="col-6 col-lg-12 alert alert-danger" role="role"><%= messageAboutme %></div>
+                        <% } else if(locals.successAboutme.length > 0) { %>
+                            <div class="col-6 col-lg-12 alert alert-success" role="role"><%= successAboutme %></div>
+                        <% } %>
+                        <form id="aboutme" name="aboutme" method="post">
+                            <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                            <input type="hidden" name="username"
+                            <% if(locals.currentUser) { %>
+                                value='<%= currentUser.username %>'
+                            <%} %>>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="firstname">First Name:</label>
+                                    <input name="firstname" type="text" class="form-control" placeholder="John"
+                                    <% if(locals.userInfo) { %>
+                                        value='<%= userInfo.firstName %>'
+                                    <%} %>>
+                                </div> 
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="lastname">Last Name:</label>
+                                    <input name="lastname" type="text" class="form-control" placeholder="Doe"
+                                    <% if(locals.userInfo) { %>
+                                        value='<%= userInfo.lastName %>'
+                                    <%} %>>
+                                </div> 
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="company">Company:</label>
+                                    <input name="company" type="text" class="form-control" placeholder="Twitch HQ"
+                                    <% if(locals.userInfo) { %>
+                                        value='<%= userInfo.company %>'
+                                    <%} %>>
+                                </div> 
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="aboutme">About Me:</label>
+                                    <textarea name="aboutme" type="text" class="form-control" rows="5" placeholder="About me..."><% if(locals.userInfo) { %><%= userInfo.about %><% } %></textarea>
+                                </div> 
+                            </div>
+                            <div class="form-row justify-content-center update-aboutme">
+                                <div class="form-group col-6 col-lg-12 auth-btn"><input class="btn btn-dark" type="submit" value="Save Changes"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="title profile">Update Email</h1>
+                        <% if(locals.messageEmail.length > 0) { %>
+                            <div class="col-6 col-lg-12 alert alert-danger" role="role"><%= messageEmail %></div>
+                        <% } else if(locals.successEmail.length > 0) { %>
+                            <div class="col-6 col-lg-12 alert alert-success" role="role"><%= successEmail %></div>
+                        <% } %>
+                        <div>Password verification is required to confirm your email update.</div>
+                        <form id="email-update" name="email" method="post" class="needs-validation" novalidate>
+                            <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                            <input type="hidden" name="currentemail"
+                            <% if(locals.currentUser) { %>
+                                value='<%= currentUser.email %>'
+                            <%} %>>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="email">Email <span class="required">*</span></label>
+                                    <input id="profile-update-email" name="email" type="email" class="form-control" placeholder="name@example.com" required>
+                                    <small id="profile-emailhelp" class="form-text text-muted">Please enter a valid email</small>
+                                    <div class="invalid-feedback">
+                                            Please provide a valid email.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="password">Password <span class="required">*</span></label>
+                                    <input name="password" type="password" class="form-control" placeholder="Password" required>
+                                    <div class="invalid-feedback">
+                                            Please provide your password.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center update-email">
+                                <div class="form-group col-6 col-lg-12 auth-btn"><input class="btn btn-dark" type="submit" value="Update Email"></div>
+                            </div>
+                        </form>
+                        <h1 class="title profile">Update Password</h1>
+                        <% if(locals.messagePassword.length > 0) { %>
+                            <div class="col-6 col-lg-12 alert alert-danger" role="role"><%= messagePassword %></div>
+                        <% } else if(locals.successPassword.length > 0) { %>
+                            <div class="col-6 col-lg-12 alert alert-success" role="role"><%= successPassword %></div>
+                        <% } %>
+                        <form id="password-update" name="password" method="post" class="needs-validation" novalidate>
+                            <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="currentpassword">Current Password <span class="required">*</span></label>
+                                    <input name="currentpassword" type="password" class="form-control" placeholder="Password" required>
+                                    <div class="invalid-feedback">
+                                            Please provide your current password.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="newpassword">New Password <span class="required">*</span></label>
+                                    <input id="profile-newpassword" name="newpassword" type="password" class="form-control" placeholder="Password" required>
+                                    <small id="profile-passwordhelp" class="form-text text-muted">Password must be at least 8 characters and contain at least one uppercase letter, one lowercase letter and one number</small>
+                                    <div class="invalid-feedback">
+                                            Please provide a new password.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-6 col-lg-12">
+                                    <label for="confirmpassword">Confirm New Password <span class="required">*</span></label>
+                                    <input name="confirmpassword" type="password" class="form-control" placeholder="Password" required>
+                                    <div class="invalid-feedback">
+                                            Please confirm your new password.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row justify-content-center update-password">
+                                <div class="form-group col-6 col-lg-12 auth-btn"><input class="btn btn-dark" type="submit" value="Update Password"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% include partials/template/footer.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

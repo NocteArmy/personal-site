@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    
+    <body id="<%= pageID %>">
+        <% include partials/template/header.ejs %>
+
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h1 class="title reset">Reset Password</h1>
+                </div>
+                <% if(locals.authSuccess.length > 0) { %>
+                    <div class="row justify-content-center"><div class="col-6 col-lg-5 col-xl-4 alert alert-success" role="role"><%= authSuccess %></div></div>
+                <% } %>
+                <% if(locals.authFailure.length > 0) { %>
+                    <div class="row justify-content-center"><div class="col-6 col-lg-5 col-xl-4 alert alert-danger" role="role"><%= authFailure %></div></div>
+                <% } %>  
+                <form id="resetpassword" name="resetpassword" method="post" class="needs-validation" novalidate>
+                    <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="newpassword">New Password <span class="required">*</span></label>
+                            <input id="reset-password" name="newpassword" type="password" class="form-control" placeholder="Password" required>
+                            <small id="reset-passwordhelp" class="form-text text-muted">Password must be at least 8 characters and contain at least one uppercase letter, one lowercase letter and one number</small>
+                            <div class="invalid-feedback">
+                                Please provide a new password.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="confirmpassword">Confirm Password <span class="required">*</span></label>
+                            <input name="confirmpassword" type="password" class="form-control" placeholder="Password" required>
+                            <div class="invalid-feedback">
+                                Please confirm your new password.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center resetpassword">
+                        <div class="form-group  col-6 col-lg-5 col-xl-4 auth-btn"><input class="btn btn-dark" type="submit" value="Update Password"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <% include partials/template/footer.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

@@ -4,9 +4,26 @@
 const config = require('../config');
 const App = require('../app');
 const path = require('path');
+const Sequelize = require('sequelize');
+const passport = require('passport');
 const dotenv = require('dotenv').config({ path: path.join(__dirname, '../../.env') });
 
 const log = config.logger;
+
+const sequelize = new Sequelize(config.postgres.options);
+const models = require('../models/sequelize')(sequelize);
+require('../config/passport/passport')(passport, config.logger, models.Auth, models.User);
+
+sequelize
+.authenticate()
+.then(() => {
+    log.info('Successfully connected to Postgres');
+})
+.catch((err) => {
+    log.fatal(err);
+    process.exit(1);
+});
+config.postgres.client = sequelize;
 
 /* Start the application */
 const app = App(config);

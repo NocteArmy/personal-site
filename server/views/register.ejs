@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    
+    <body>
+        <% include partials/template/header.ejs %>
+
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <div class="auth-header">
+                    <h1 class="title">Register</h1>
+                    <p>Already a member? <a href="/login">Log In</a></p>
+                </div>
+                <% if(locals.authFailure.length > 0) { %>
+                    <div class="row justify-content-center"><div class="col-6 col-lg-5 col-xl-4 alert alert-danger" role="role"><%= authFailure %></div></div>
+                <% } %>
+                <form id="register" name="register" class="needs-validation" method="post" action="register" novalidate>
+                    <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="username">Username <span class="required">*</span></label>
+                            <input id="reg-username" name="username" type="username" class="form-control" placeholder="Username" required>
+                            <small id="usernamehelp" class="form-text text-muted">Username must be 3-30 characters, containing only letters, numbers, hyphens and underscores</small>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input id="reg-email" name="email" type="email" class="form-control" placeholder="name@example.com" required>
+                            <small id="emailhelp" class="form-text text-muted">Please enter a valid email</small>
+                            <div class="invalid-feedback">
+                                    Please provide a valid email.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="password">Password <span class="required">*</span></label>
+                            <input id="reg-password" name="password" type="password" class="form-control" placeholder="Password" required>
+                            <small id="passwordhelp" class="form-text text-muted">Password must be at least 8 characters and contain at least one uppercase letter, one lowercase letter and one number</small>
+                            <div class="invalid-feedback">
+                                    Please provide a valid password.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4">
+                            <label for="confirmpassword">Confirm Password <span class="required">*</span></label>
+                            <input id="reg-confirmpassword" name="confirmpassword" type="password" class="form-control" placeholder="Password" required>
+                            <div class="invalid-feedback">
+                                    Please confirm your password.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-6 col-lg-5 col-xl-4 auth-btn"><input class="btn btn-dark" type="submit" value="Register"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <% include partials/template/footer.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>

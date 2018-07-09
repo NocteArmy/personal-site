@@ -43,15 +43,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-/* Download Button */
-.btn {
-    text-decoration: none;
-    background: #EF233C;
-    color: white;
-    padding: 10px;
-    display: inline-block;
-}
-
 /* Header and Footer
 ----------------------------*/
 header, footer {
@@ -71,11 +62,6 @@ header .container {
 header h1, header h2, header p {
     color: #EDF2F4;
     margin: 0;
-}
-.download {
-    position: absolute;
-    bottom: 0;
-    right: 0;
 }
 
 /* Footer */
@@ -116,12 +102,25 @@ header .navbar-brand {
     font-size: 1.3em;
     font-weight: 300;
 }
+header .auth {
+    text-align: right;
+    border-color: rgba(193, 137, 52, .75);
+}
 header .nav-link {
     color: #c18934;
 }
 header .navbar-toggler {
     color: rgba(193, 137, 52, .85);
     border-color: rgba(193, 137, 52, .75);
+}
+header .btn-primary {
+    background: transparent;
+    color: #c18934;
+    border-color: #c18934;
+    width: 100px;
+    font-size: 1.25rem;
+    font-family: inherit;
+    font-weight: 100;
 }
 /* Skill Summary
 ----------------------------*/
@@ -148,15 +147,31 @@ h3 ~ p {
 /* Professional Training
 ----------------------------*/
 .prof-training {
-    border-top: 4px solid #90aab6;
+    border-bottom: 4px solid #90aab6;
     padding: 20px 15px;
+}
+.prof-training p {
+    margin: 0;
+}
+
+/* Resume Projects
+----------------------------*/
+.resume-projects {
+    border-bottom: 4px solid #90aab6;
+    padding: 20px 15px;
+}
+.resume-projects p {
+    margin: 0;
 }
 
 /* Education
 ----------------------------*/
 .education {
-    border-top: 4px solid #90aab6;
+    border-bottom: 4px solid #90aab6;
     padding: 20px 15px;
+}
+.education p {
+    margin: 0;
 }
 p + h3 {
     margin-top: 30px;
@@ -188,6 +203,108 @@ p + h3 {
     padding-top: 20px;
 }
 
+/* Forms
+----------------------------*/
+#login, #register, #lostpassword-form, #resetpassword, #verify {
+    padding-top: 20px;
+}
+.auth-btn {
+    padding-bottom: 40px!important;
+}
+.btn-dark {
+    color: #c18934;
+    background: #2B2D42;
+}
+.auth-header {
+    text-align: center;
+}
+.auth-header h1 {
+    padding-top: 40px;
+}
+.form-group {
+    margin: 0;
+    padding-bottom: 7px;
+}
+.required {
+    color: #e05868;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+.invalid {
+    border-color: #e05868;
+    border-bottom-width: 5px;
+    background-image: url('./../images/delete-2-24.gif');
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+}
+.invalid:focus {
+    background-color: #ffd1d6;
+    border-color: #f3102f;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(243, 16, 46, 0.25);
+}
+.valid {
+    border-color: #347526;
+    border-bottom-width: 5px;
+    background-image: url('./../images/checkmark-24.gif');
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+}
+.valid:focus {
+    background-color: #adeca0;
+    border-color: #448f33;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(42, 104, 29, 0.25);
+}
+#usernamehelp {
+    color: #dc3545;
+    display: none;
+}
+#emailhelp {
+    color: #dc3545;
+    display: none;
+}
+#passwordhelp {
+    color: #dc3545;
+    display: none;
+}
+#confirmhelp {
+    color: #dc3545;
+    display: none;
+}
+#profile-emailhelp {
+    color: #dc3545;
+    display: none;
+}
+#profile-passwordhelp {
+    color: #dc3545;
+    display: none;
+}
+#reset-passwordhelp {
+    color: #dc3545;
+    display: none;
+}
+/* Alerts
+----------------------------*/
+.alert {
+    margin-bottom: 0;
+}
+.no-margin {
+    margin: 0;
+}
+
+/* Titles
+----------------------------*/
+.profile {
+    padding-top: 20px;
+}
+.resend {
+    padding-top: 20px;
+}
+.reset {
+    padding-top: 20px;
+}
+
 /* Media Queries
 ----------------------------*/
 @media (max-width: 767px) {
@@ -197,10 +314,24 @@ p + h3 {
     header .navbar-nav {
         text-align: right;
     }
+    header .p-2 {
+        padding-right: 0!important;
+    }
     header h1, header h2, header p {
         text-align: center;
     }
     .contact-info a {
         font-size: 2.25em;
+    }
+}
+@media (max-width: 991px) {
+    .profile {
+        text-align: center;
+    }
+    .update-aboutme {
+        border-bottom: 4px solid #90aab6;
+    }
+    .update-email {
+        border-bottom: 4px solid #90aab6;
     }
 }

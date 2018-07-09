@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><% include partials/template/head.ejs %></head>
+    
+    <body id="<%= pageID %>">
+        <% include partials/template/header.ejs %>
+
+        <div class="jumbotron-fluid">
+            <div class="container">
+                <% if(locals.authFailure.length > 0) { %>
+                    <div class="row alert alert-danger" role="role"><%= authFailure %></div>
+                <% } %>
+                <div class="row">
+                    <h1 class="title resend">Resend Verification Email</h1>
+                    <p>If your verification token expired or you did not receive your initial email, please use this form to submit another request and a new verification email should be sent to you. If your email was typed in incorrectly, please visit the <a href="/profile">Settings</a> page and update your email.</p>
+                </div>   
+                <form id="verify" name="verify" method="post">
+                    <input type="hidden" name="_csrf" value=<%= _csrf %>>
+                    <input type="hidden" name="email"
+                    <% if(locals.currentUser) { %>
+                        value='<%= currentUser.email %>'
+                    <%} %>>
+                    <div class="form-row verify form-group auth-btn">
+                        <input class="btn btn-dark" type="submit" value="Resend Email">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <% include partials/template/footer.ejs %>
+        <% include partials/template/jsdefaults.ejs %>
+    </body>
+</html>
