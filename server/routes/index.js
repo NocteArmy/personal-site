@@ -1,13 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const resumeRoute = require('./resume/index');
 
-router.get('/', function(req, res) {
+module.exports = (config) => {
+    const router = express.Router();
 
-    res.render('index', {
-        pageTitle: 'Home',
-        pageID: 'home'
+    router.get('/', (req, res) => {
+        res.render('index', {
+            pageTitle: 'Home',
+            pageID: 'home'
+        });
     });
 
-});
+    router.use('/resume', resumeRoute(config));
 
-module.exports = router;
+    return router;
+};
