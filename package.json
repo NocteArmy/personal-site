@@ -2,9 +2,9 @@
   "name": "site_name",
   "version": "1.0.0",
   "description": "description added here",
-  "main": "site/site.js",
+  "main": "server/app.js",
   "scripts": {
-    "start": "nodemon -e css,ejs,js,json --watch site"
+    "start": "nodemon -e css,ejs,js,json --watch app"
   },
   "repository": {
     "type": "git",
